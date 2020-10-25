@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RadioButtons from "./RadioButtons";
-import TextInput from "./TextInput";
+import Input from "./Input";
 
 /**
  * {
@@ -31,27 +31,28 @@ const Form = () => {
   return (
     <form onSubmit={send}>
       <h2>Info</h2>
-      <TextInput name="Imię" handleChange={handleFormStateChange("name")} />
-      <TextInput
-        name="Nazwisko"
-        handleChange={handleFormStateChange("lastName")}
+      <Input name="Imię" handleChange={handleFormStateChange("name")} />
+      <Input name="Nazwisko" handleChange={handleFormStateChange("lastName")} />
+      <Input
+        name="Wiek"
+        type="number"
+        handleChange={handleFormStateChange("age")}
       />
-      <TextInput name="Wiek" handleChange={handleFormStateChange("age")} />
       <RadioButtons
         name="Płeć"
         options={[
           {
             id: "1",
-            value: "Man",
+            value: "Man"
           },
           {
             id: "2",
-            value: "Woman",
+            value: "Woman"
           },
           {
             id: "3",
-            value: "Fluid",
-          },
+            value: "Fluid"
+          }
         ]}
         handleChange={handleFormStateChange("sex")}
       />
