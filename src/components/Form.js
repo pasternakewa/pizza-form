@@ -33,29 +33,46 @@ const Form = () => {
       <h2>Info</h2>
       <Input name="Imię" handleChange={handleFormStateChange("name")} />
       <Input name="Nazwisko" handleChange={handleFormStateChange("lastName")} />
-      <Input
-        name="Wiek"
-        type="number"
-        handleChange={handleFormStateChange("age")}
-      />
-      <RadioButtons
-        name="Płeć"
-        options={[
-          {
-            id: "1",
-            value: "Man"
-          },
-          {
-            id: "2",
-            value: "Woman"
-          },
-          {
-            id: "3",
-            value: "Fluid"
-          }
-        ]}
-        handleChange={handleFormStateChange("sex")}
-      />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: "360px",
+          justifyContent: "space-between"
+        }}
+      >
+        <Input
+          style={{
+            marginLeft: 0
+          }}
+          name="Wiek"
+          width="80px"
+          type="number"
+          handleChange={handleFormStateChange("age")}
+        />
+        <RadioButtons
+          style={{
+            marginLeft: 0
+          }}
+          name="Płeć"
+          options={[
+            {
+              id: "1",
+              value: "Man"
+            },
+            {
+              id: "2",
+              value: "Woman"
+            },
+            {
+              id: "3",
+              value: "Fluid"
+            }
+          ]}
+          handleChange={handleFormStateChange("sex")}
+        />
+      </div>
+
       <button type="submit">Send</button>
     </form>
   );
