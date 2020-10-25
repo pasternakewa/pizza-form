@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import RadioButtons from "./RadioButtons";
 import TextInput from "./TextInput";
 
 /**
@@ -29,6 +30,11 @@ const Form = () => {
         handleChange={handleFormStateChange("lastName")}
       />
       <TextInput name="Wiek" handleChange={handleFormStateChange("age")} />
+      <RadioButtons
+        name="Płeć"
+        options={["Man", "Woman", "Fluid"]}
+        handleChange={handleFormStateChange("sex")}
+      />
       <button type="submit">Send</button>
     </form>
   );
