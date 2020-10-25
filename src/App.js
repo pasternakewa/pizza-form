@@ -5,7 +5,13 @@ import Form from "./components/Form";
 class App extends Component {
   render() {
     return (
-      <div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Form />
       </div>
     );

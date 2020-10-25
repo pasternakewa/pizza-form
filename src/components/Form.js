@@ -15,11 +15,18 @@ import TextInput from "./TextInput";
  */
 
 const Form = () => {
-  const send = () => {};
   const [formState, setFormState] = useState({});
+
+  const send = (e) => {
+    e.preventDefault();
+    alert(JSON.stringify(formState, null, 2));
+  };
+
   const handleFormStateChange = (key) => (e) => {
     setFormState({ ...formState, [key]: e.target.value });
   };
+
+  console.log("formState", formState);
 
   return (
     <form onSubmit={send}>
@@ -32,7 +39,20 @@ const Form = () => {
       <TextInput name="Wiek" handleChange={handleFormStateChange("age")} />
       <RadioButtons
         name="Płeć"
-        options={["Man", "Woman", "Fluid"]}
+        options={[
+          {
+            id: "1",
+            value: "Man",
+          },
+          {
+            id: "2",
+            value: "Woman",
+          },
+          {
+            id: "3",
+            value: "Fluid",
+          },
+        ]}
         handleChange={handleFormStateChange("sex")}
       />
       <button type="submit">Send</button>
