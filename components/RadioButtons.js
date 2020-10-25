@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-
-const RadioButtons = (props) => {
-  const [chosenValue, setChosenValue] = useState("");
-
+const RadioButtons = ({ name }) => {
   const createRadioButton = props.options.map((option) => {
     return (
       <div>
@@ -14,10 +10,8 @@ const RadioButtons = (props) => {
 
   return (
     <div>
-      <label>{props.name}</label>
-      <div onChange={() => setChosenValue(event.target.value)}>
-        {createRadioButton}
-      </div>
+      <label>{name}</label>
+      <div onChange={handleChange}>{createRadioButton}</div>
     </div>
   );
 };
