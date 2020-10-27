@@ -21,12 +21,7 @@ const Input = ({
       <label style={{ textAlign: "left" }} htmlFor={name}>
         {name}
       </label>
-      <input
-        id={name}
-        type={type}
-        value={value}
-        onChange={handleChange}
-      ></input>
+      <input id={name} type={type} value={value} onChange={handleChange} />
     </div>
   );
 };

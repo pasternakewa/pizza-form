@@ -26,8 +26,6 @@ const Form = () => {
     setFormState({ ...formState, [key]: e.target.value });
   };
 
-  console.log("formState", formState);
-
   return (
     <form onSubmit={send}>
       <h2>Info</h2>
