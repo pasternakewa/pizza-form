@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RadioButtons from "./RadioButtons";
-import TextInput from "./TextInput";
+import Input from "./Input";
 
 /**
  * {
@@ -15,8 +15,13 @@ import TextInput from "./TextInput";
  */
 
 const Form = () => {
-  const send = () => {};
   const [formState, setFormState] = useState({});
+
+  const send = (e) => {
+    e.preventDefault();
+    alert(JSON.stringify(formState, null, 2));
+  };
+
   const handleFormStateChange = (key) => (e) => {
     setFormState({ ...formState, [key]: e.target.value });
   };
@@ -24,17 +29,48 @@ const Form = () => {
   return (
     <form onSubmit={send}>
       <h2>Info</h2>
-      <TextInput name="Imię" handleChange={handleFormStateChange("name")} />
-      <TextInput
-        name="Nazwisko"
-        handleChange={handleFormStateChange("lastName")}
-      />
-      <TextInput name="Wiek" handleChange={handleFormStateChange("age")} />
-      <RadioButtons
-        name="Płeć"
-        options={["Man", "Woman", "Fluid"]}
-        handleChange={handleFormStateChange("sex")}
-      />
+      <Input name="Imię" handleChange={handleFormStateChange("name")} />
+      <Input name="Nazwisko" handleChange={handleFormStateChange("lastName")} />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: "360px",
+          justifyContent: "space-between"
+        }}
+      >
+        <Input
+          style={{
+            marginLeft: 0
+          }}
+          name="Wiek"
+          width="80px"
+          type="number"
+          handleChange={handleFormStateChange("age")}
+        />
+        <RadioButtons
+          style={{
+            marginLeft: 0
+          }}
+          name="Płeć"
+          options={[
+            {
+              id: "1",
+              value: "Man"
+            },
+            {
+              id: "2",
+              value: "Woman"
+            },
+            {
+              id: "3",
+              value: "Fluid"
+            }
+          ]}
+          handleChange={handleFormStateChange("sex")}
+        />
+      </div>
+
       <button type="submit">Send</button>
     </form>
   );

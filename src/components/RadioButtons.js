@@ -1,19 +1,27 @@
 import React from "react";
+import RadioButton from "./RadioButton";
 
 const RadioButtons = ({ name, options, handleChange }) => {
-  const createRadioButton = options.map((option) => {
-    return (
-      <div>
-        <label>{option}</label>
-        <input type="radio" value={option} key={option} name={name} />
-      </div>
-    );
-  });
-
   return (
     <div>
       <label>{name}</label>
-      <div onChange={handleChange}>{createRadioButton}</div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+        }}
+      >
+        {options.map(({ id, value }) => (
+          <RadioButton
+            key={id}
+            id={id}
+            name={name}
+            value={value}
+            onClick={handleChange}
+          />
+        ))}
+      </div>
     </div>
   );
 };
