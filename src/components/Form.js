@@ -42,8 +42,16 @@ const Form = () => {
   return (
     <form onSubmit={send}>
       <h2>Info</h2>
-      <Input name="Imię" handleChange={handleFormStateChange("name")} />
-      <Input name="Nazwisko" handleChange={handleFormStateChange("lastName")} />
+      <Input
+        name="Imię"
+        handleChange={handleFormStateChange("name")}
+        value={formState.name}
+      />
+      <Input
+        name="Nazwisko"
+        handleChange={handleFormStateChange("lastName")}
+        value={formState.lastName}
+      />
       <div
         style={{
           display: "flex",
