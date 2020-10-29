@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RadioButtons from "./RadioButtons";
 import Input from "./Input";
+import RadioButton from "./RadioButton";
 
 /**
  * {
@@ -16,6 +17,7 @@ import Input from "./Input";
 
 const Form = () => {
   const [formState, setFormState] = useState({});
+  const [showDeliveryHours, setShowDeliveryHours] = useState(false);
 
   const send = (e) => {
     e.preventDefault();
@@ -25,7 +27,8 @@ const Form = () => {
   const handleFormStateChange = (key) => (e) => {
     setFormState({ ...formState, [key]: e.target.value });
   };
-
+  console.log("setShowDeliveryHours", setShowDeliveryHours);
+  console.log("formState", formState);
   return (
     <form onSubmit={send}>
       <h2>Info</h2>
@@ -55,22 +58,35 @@ const Form = () => {
           name="Płeć"
           options={[
             {
-              id: "1",
+              id: "0",
               value: "Man"
             },
             {
-              id: "2",
+              id: "1",
               value: "Woman"
             },
             {
-              id: "3",
+              id: "2",
               value: "Fluid"
             }
           ]}
           handleChange={handleFormStateChange("sex")}
         />
       </div>
-
+      <h2>Czas dostawy</h2>
+      <RadioButton
+        name="deliveryTime"
+        id="asap"
+        value="ASAP"
+        onClick={() => setShowDeliveryHours(false)}
+      />
+      <RadioButton
+        name="deliveryTime"
+        id="chooseHours"
+        value="Wybierz godzinę"
+        onClick={() => setShowDeliveryHours(true)}
+      />
+      <div>{showDeliveryHours && <Input />}</div>
       <button type="submit">Send</button>
     </form>
   );
