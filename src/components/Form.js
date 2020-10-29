@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Checkbox from "./Checkbox";
 import RadioButtons from "./RadioButtons";
 import Input from "./Input";
 import RadioButton from "./RadioButton";
@@ -15,6 +16,12 @@ import RadioButton from "./RadioButton";
  * }
  */
 
+const EXTRAS = [
+  { id: "31", value: "sos czosnkowy" },
+  { id: "32", value: "sos aioli" },
+  { id: "33", value: "sos BBQ" }
+];
+
 const Form = () => {
   const [formState, setFormState] = useState({});
   const [showDeliveryHours, setShowDeliveryHours] = useState(false);
@@ -27,6 +34,15 @@ const Form = () => {
   const handleFormStateChange = (key) => (e) => {
     setFormState({ ...formState, [key]: e.target.value });
   };
+  const createCheckboxes = EXTRAS.map(({ value, id }) => {
+    <Checkbox
+      label={value}
+      isSelected="false"
+      id={id}
+      key={id}
+      onCheckboxChange={handleFormStateChange}
+    />;
+  });
 
   const handleDeliveryTimeState = (value) => {
     if (value === "ASAP") {
