@@ -38,7 +38,6 @@ const Form = () => {
     }
   };
 
-  console.log("formState", formState);
   return (
     <form onSubmit={send}>
       <h2>Info</h2>
