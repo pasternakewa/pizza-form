@@ -27,7 +27,17 @@ const Form = () => {
   const handleFormStateChange = (key) => (e) => {
     setFormState({ ...formState, [key]: e.target.value });
   };
-  console.log("setShowDeliveryHours", setShowDeliveryHours);
+
+  const test = (value) => {
+    if (value === "ASAP") {
+      setFormState({ ...formState, deliveryTime: value });
+      setShowDeliveryHours(false);
+    } else {
+      setFormState({ ...formState, deliveryTime: "18.00" });
+      setShowDeliveryHours(true);
+    }
+  };
+
   console.log("formState", formState);
   return (
     <form onSubmit={send}>
@@ -78,15 +88,24 @@ const Form = () => {
         name="deliveryTime"
         id="asap"
         value="ASAP"
-        onClick={() => setShowDeliveryHours(false)}
+        onClick={() => {
+          test("ASAP");
+        }}
       />
       <RadioButton
         name="deliveryTime"
         id="chooseHours"
         value="Wybierz godzinę"
-        onClick={() => setShowDeliveryHours(true)}
+        onClick={() => test("chooseHours")}
       />
-      <div>{showDeliveryHours && <Input />}</div>
+      <div>
+        {showDeliveryHours && (
+          <Input
+            value={formState.deliveryTime}
+            handleChange={handleFormStateChange("deliveryTime")}
+          />
+        )}
+      </div>
       <button type="submit">Send</button>
     </form>
   );
