@@ -29,7 +29,7 @@ const Form = () => {
     setFormState({ ...formState, [key]: e.target.value });
   };
 
-  const handleDeliveryTimeState = (value) => {
+  const handleDeliveryTimeStateChange = (value) => {
     if (value === "ASAP") {
       setFormState({ ...formState, deliveryTime: value });
       setShowDeliveryHours(false);
@@ -96,14 +96,14 @@ const Form = () => {
         id="asap"
         value="ASAP"
         onClick={() => {
-          handleDeliveryTimeState("ASAP");
+          handleDeliveryTimeStateChange("ASAP");
         }}
       />
       <RadioButton
         name="deliveryTime"
         id="chooseHours"
         value="Wybierz godzinę"
-        onClick={() => handleDeliveryTimeState("chooseHours")}
+        onClick={() => handleDeliveryTimeStateChange("chooseHours")}
       />
       <div>
         {showDeliveryHours && (
