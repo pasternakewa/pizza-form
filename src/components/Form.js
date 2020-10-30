@@ -62,7 +62,7 @@ const Form = () => {
         style={{
           display: "flex",
           flexDirection: "row",
-          width: "360px",
+          width: "300px",
           justifyContent: "space-between"
         }}
       >
