@@ -1,9 +1,9 @@
 import React from "react";
 
-const Checkbox = ({ label, isSelected, onChange }) => (
+const Checkbox = ({ label, id, onChange }) => (
   <div>
-    <label>{label}</label>
-    <input {...{ type: "checkbox", name: label, isSelected, onChange }} />
+    <input {...{ type: "checkbox", name: label, onChange, id }} />
+    <label htmlFor={id}>{label}</label>
   </div>
 );
 

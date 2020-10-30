@@ -2,7 +2,7 @@ import React from "react";
 import Checkbox from "./Checkbox.js";
 
 const Checkboxes = ({ extras, onCheckboxChange }) =>
-  extras.map(({ value, id }) => (
+  extras.map(({ id, value }) => (
     <div>
       <Checkbox
         label={value}

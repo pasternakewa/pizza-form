@@ -11,7 +11,7 @@ import RadioButton from "./RadioButton";
  *  age: string,
  *  sex: string
  *  deliveryTime: string
- *  additions: string[]
+ *  extras: string[]
  *  note: string
  * }
  */
@@ -123,7 +123,8 @@ const Form = () => {
       <h2>Dodatki</h2>
       <Checkboxes
         extras={extras}
-        onCheckboxChange={handleFormStateChange("extras")}
+        onChange={() => handleFormStateChange("extras")}
+        value={formState.extras}
       />
       <button type="submit">Send</button>
     </form>
