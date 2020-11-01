@@ -4,6 +4,7 @@ const DEFAULT_WIDTH = "300px";
 
 const Input = ({
   name,
+  value,
   width = DEFAULT_WIDTH,
   type = "text",
   handleChange
@@ -20,7 +21,7 @@ const Input = ({
       <label style={{ textAlign: "left" }} htmlFor={name}>
         {name}
       </label>
-      <input id={name} type={type} onChange={handleChange} />
+      <input id={name} type={type} onChange={handleChange} value={value} />
     </div>
   );
 };
