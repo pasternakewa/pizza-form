@@ -2,7 +2,7 @@ import React from "react";
 
 const DEFAULT_WIDTH = "300px";
 
-const Textarea = ({ name, width = DEFAULT_WIDTH, handleChange }) => {
+const Textarea = ({ name, width = DEFAULT_WIDTH, handleChange, value }) => {
   return (
     <div
       style={{
@@ -12,7 +12,7 @@ const Textarea = ({ name, width = DEFAULT_WIDTH, handleChange }) => {
         justifyContent: "start"
       }}
     >
-      <textarea id={name} onChange={handleChange} />
+      <textarea id={name} onChange={handleChange} value={value} />
     </div>
   );
 };
