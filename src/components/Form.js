@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RadioButtons from "./RadioButtons";
 import Input from "./Input";
 import RadioButton from "./RadioButton";
+import Textarea from "./Textarea";
 
 /**
  * {
@@ -37,7 +38,6 @@ const Form = () => {
       setShowDeliveryHours(true);
     }
   };
-
   return (
     <form onSubmit={send}>
       <h2>Info</h2>
@@ -113,6 +113,11 @@ const Form = () => {
           />
         )}
       </div>
+      <h2>Notatki</h2>
+      <Textarea
+        handleChange={handleFormStateChange("note")}
+        value={formState.note}
+      />
       <button type="submit">Send</button>
     </form>
   );
