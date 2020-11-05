@@ -39,7 +39,7 @@ const Form = () => {
     }
   };
   return (
-    <form onSubmit={send}>
+    <form onSubmit={send} onReset={() => setFormState({})}>
       <h2>Info</h2>
       <Input
         name="Imię"
@@ -115,9 +115,10 @@ const Form = () => {
       </div>
       <h2>Notatki</h2>
       <Textarea
-        handleChange={handleFormStateChange("note")}
+        onChange={handleFormStateChange("note")}
         value={formState.note}
       />
+      <button type="reset">Clear</button>
       <button type="submit">Send</button>
     </form>
   );
