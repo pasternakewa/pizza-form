@@ -115,7 +115,7 @@ const Form = () => {
       </div>
       <h2>Notatki</h2>
       <Textarea
-        onChange={handleFormStateChange("note")}
+        handleChange={handleFormStateChange("note")}
         value={formState.note}
       />
       <button type="reset">Clear</button>
