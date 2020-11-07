@@ -4,7 +4,7 @@ const DEFAULT_WIDTH = "300px";
 
 const Input = ({
   name,
-  value,
+  value = "",
   width = DEFAULT_WIDTH,
   type = "text",
   handleChange
