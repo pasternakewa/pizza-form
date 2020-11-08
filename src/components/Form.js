@@ -3,6 +3,7 @@ import RadioButtons from "./RadioButtons";
 import Input from "./Input";
 import RadioButton from "./RadioButton";
 import Textarea from "./Textarea";
+import Checkboxes from "./Checkboxes";
 
 /**
  * {
@@ -113,6 +114,8 @@ const Form = () => {
           />
         )}
       </div>
+      <h2>Dodatki</h2>
+      <Checkboxes />
       <h2>Notatki</h2>
       <Textarea
         handleChange={handleFormStateChange("note")}
