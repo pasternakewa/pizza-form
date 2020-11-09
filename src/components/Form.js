@@ -3,7 +3,7 @@ import RadioButtons from "./RadioButtons";
 import Input from "./Input";
 import RadioButton from "./RadioButton";
 import Textarea from "./Textarea";
-import Checkboxes from "./Checkboxes";
+import Checkbox from "./Checkbox";
 
 /**
  * {
@@ -12,10 +12,11 @@ import Checkboxes from "./Checkboxes";
  *  age: string,
  *  sex: string
  *  deliveryTime: string
- *  additions: string[]
+ *  extras: string[]
  *  note: string
  * }
  */
+const OPTIONS = ["sos czosnkowy", "sos aioli", "sos BBQ"];
 
 const Form = () => {
   const [formState, setFormState] = useState({});
@@ -39,6 +40,19 @@ const Form = () => {
       setShowDeliveryHours(true);
     }
   };
+
+  const handleCheckboxChange = (e) => {
+    const { name } = e.target;
+    const formStateOptions = formState.options || [];
+    const isExist = formStateOptions.includes(name);
+    setFormState({
+      ...formState,
+      options: isExist
+        ? formStateOptions.filter((el) => el !== name)
+        : [...formStateOptions, name]
+    });
+  };
+
   return (
     <form onSubmit={send} onReset={() => setFormState({})}>
       <h2>Info</h2>
@@ -115,12 +129,20 @@ const Form = () => {
         )}
       </div>
       <h2>Dodatki</h2>
-      <Checkboxes />
+      {OPTIONS.map((option) => (
+        <Checkbox
+          isSelected={formState.options && formState.options.includes(option)}
+          label={option}
+          key={option}
+          onCheckboxChange={handleCheckboxChange}
+        />
+      ))}{" "}
       <h2>Notatki</h2>
       <Textarea
         handleChange={handleFormStateChange("note")}
         value={formState.note}
       />
+      {/* {console.log("formState", formState)} */}
       <button type="reset">Clear</button>
       <button type="submit">Send</button>
     </form>
