@@ -142,7 +142,6 @@ const Form = () => {
         handleChange={handleFormStateChange("note")}
         value={formState.note}
       />
-      {/* {console.log("formState", formState)} */}
       <button type="reset">Clear</button>
       <button type="submit">Send</button>
     </form>
